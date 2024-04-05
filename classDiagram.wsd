@@ -7,6 +7,10 @@ class Contact {
     String jobTitle
     PhoneNumber[] phoneNumbers
     EmailAddress[] emailAddresses
+
+    void addPhoneNumber()
+    void addEmailAddress()
+    void mergeContact()
 }
 
 class PhoneNumber {
@@ -19,7 +23,19 @@ class EmailAddress {
     String label
 }
 
-Contact "1" -u- "1..*" PhoneNumber
-Contact "1" -d- "1..*" EmailAddress
+class User {
+    Contact[] contacts
+
+    void createContact()
+    void updateContact()
+    void deleteContact()
+    void mergeContacts()
+    void filterContacts()
+    void listContacts()
+}
+
+Contact "1" -u- "0..*" PhoneNumber
+Contact "1" -d- "0..*" EmailAddress
+User "1" -d-> "0..*" Contact
 
 @enduml
