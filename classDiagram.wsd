@@ -1,0 +1,25 @@
+@startuml "ContactAppClassDiagram"
+
+class Contact {
+    String firstName
+    String lastName
+    String company
+    String jobTitle
+    PhoneNumber[] phoneNumbers
+    EmailAddress[] emailAddresses
+}
+
+class PhoneNumber {
+    String phoneNumber
+    String label
+}
+
+class EmailAddress {
+    String email
+    String label
+}
+
+Contact "1" -u- "1..*" PhoneNumber
+Contact "1" -d- "1..*" EmailAddress
+
+@enduml
